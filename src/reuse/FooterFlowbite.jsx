@@ -8,11 +8,11 @@ import {
 
 const FooterFlowbite = () => {
   return (
-    <Footer container className="mt-5 !bg-amber-300">
+    <Footer container className="mt-5 !bg-red-800">
       <FooterCopyright
         by="Deivid R. Business Web™"
         year={2025}
-        className="!text-black"
+        className="!text-white"
       />
       {/* <FooterLinkGroup>
         <FooterLink

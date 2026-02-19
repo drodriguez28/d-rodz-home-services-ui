@@ -2,10 +2,8 @@ import React from 'react'
 import { Table } from '@contentful/f36-components';
 import { Link } from 'react-router-dom'
 
-
-
-
 function AutoDetailing() {
+  // All this pages add Gallery
   const contentTypes = [
     {
       id: '1',

@@ -1,30 +1,49 @@
 import React from "react";
 import { Card } from "flowbite-react";
 
-export const InfoCard = () => {
+export const InfoCard = ({ 
+  imgSrc, 
+  title, 
+  description, 
+  subtitle, 
+  listItems = [], 
+  footer,
+  horizontal = true,
+  className = "max-w-sm"
+}) => {
   return (
-    <Card className="max-w-sm" imgSrc="/images/profile-pic.png" horizontal>
-      <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        Service Areas
-      </h5>
-      <p className="font-normal text-gray-700 dark:text-gray-400">
-        Roswell, Alpharetta, Dunwoody, Sandy Springs
-      </p>
-      <h6 className="text-lg font-semibold mt-4 text-gray-900 dark:text-white">
-        Hours
-      </h6>
-      <ul className="font-normal text-gray-700 dark:text-gray-400 list-disc list-inside">
-        <li>Monday 9am-5pm</li>
-        <li>Tuesday 9am-5pm</li>
-        <li>Wednesday 9am-5pm</li>
-        <li>Thursday 9am-5pm</li>
-        <li>Friday 9am-5pm</li>
-        <li>Saturday Closed</li>
-        <li>Sunday Closed</li>
-      </ul>
-      <p className="font-normal text-gray-700 dark:text-gray-400 mt-4">
-        (404) 860-4223
-      </p>
+    <Card className={`${className} !bg-white`} imgSrc={imgSrc} horizontal={horizontal}>
+      {title && (
+        <h5 className="text-2xl font-bold tracking-tight text-black">
+          {title}
+        </h5>
+      )}
+      
+      {description && (
+        <p className="font-normal text-gray-700">
+          {description}
+        </p>
+      )}
+      
+      {subtitle && (
+        <h6 className="text-lg font-semibold mt-4 text-gray-900">
+          {subtitle}
+        </h6>
+      )}
+      
+      {listItems.length > 0 && (
+        <ul className="font-normal text-gray-700 list-disc list-inside">
+          {listItems.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      )}
+      
+      {footer && (
+        <p className="font-normal text-gray-700 mt-4">
+          {footer}
+        </p>
+      )}
     </Card>
   );
 };
