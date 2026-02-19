@@ -15,7 +15,7 @@ export const NavBar = () => {
       <NavbarBrand as={Link} to="/">
         <Logo size="small" />
       </NavbarBrand>
-      <NavbarToggle />
+      <NavbarToggle className="!text-white hover:!bg-red-800 focus:!ring-white [&>svg]:!text-white" />
       <NavbarCollapse className="lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
         <NavbarLink as={Link} to="/" className="mx-4 !text-white text-xl">
           Home
