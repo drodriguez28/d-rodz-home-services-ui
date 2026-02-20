@@ -1,33 +1,46 @@
-import { Cards } from "../reuse/Cards";
+import { useNavigate } from "react-router-dom";
 import { InfoCard } from "../reuse/InfoCard";
+import { HeroSection } from "../reuse/HeroSection";
+import { ProfileCard } from "../reuse/ProfileCard";
 
 function Home() {
+
+  const navigate = useNavigate();
+
   return (
     <div className="mx-auto mt-10 px-4">
-      {" "}
-      {/* 1. Outer container */}
       <div className="mb-12 text-center max-w-3xl mx-auto">
-        {" "}
-        {/* 2. Header container */}
-        {/* Add Jumbotron here  */}
-        <h1 className="text-3xl font-bold mb-4">Professional Home Services</h1>
-        <p className="text-lg">
-          We focus on delivering quality home services tailored to your needs. From professional painting to expert electrical work, we handle all your essential home improvements. Our experienced team ensures every project is completed with precision and care, making your house feel like home.
-        </p>
+        <HeroSection
+          title="Professional Home Services"
+          description="We focus on delivering quality home services tailored to your needs. From professional painting to expert electrical work, we handle all your essential home improvements."
+        />
       </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center mb-8 max-w-4xl mx-auto">
-        {/* 3. InfoCard container */}
         <InfoCard
-          imgSrc="/images/profile-pic.png"
+          imgSrc="/images/painting-logo.svg"
           title="Painting"
-          description="Professional interior and exterior painting services to transform your home. We handle everything from color consultation to final coat, ensuring clean lines, smooth finishes, and long-lasting results. Our experienced painters work efficiently while protecting your furniture and floors."
+          description="Professional interior and exterior painting services to transform your home."
           horizontal={false}
+          onButtonClick={() => navigate('/painting')}
         />
         <InfoCard
-          imgSrc="/images/profile-pic.png"
+          imgSrc="/images/electrical-logo.svg"
           title="Electrical"
-          description="Professional electrical services for residential repairs, installations, and upgrades. From troubleshooting outlets and switches to panel upgrades and lighting installations, we ensure your home's electrical system is safe, efficient, and up to code."
+          description="Professional electrical services for residential repairs, installations, and upgrades."
           horizontal={false}
+          onButtonClick={() => navigate('/electrical')}
+        />
+      </div>
+
+      {/* Profile Card Example */}
+      <div className="flex justify-center mt-12">
+        <ProfileCard
+          image="/images/deivid.png"
+          name="Deivid Rodriguez"
+          title="Owner"
+          description="25+ years of experience in home services"
+          showButtons={false}
         />
       </div>
     </div>

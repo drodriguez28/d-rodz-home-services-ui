@@ -1,0 +1,49 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="200" height="200" fill="#f9f5f0"/>
+  
+  <!-- House -->
+  <rect x="40" y="60" width="100" height="70" fill="#e8d5c4" stroke="#8B6F47" stroke-width="2"/>
+  
+  <!-- Roof -->
+  <polygon points="40,60 90,25 140,60" fill="#8B4513" stroke="#333" stroke-width="2"/>
+  
+  <!-- Door -->
+  <rect x="80" y="100" width="20" height="30" fill="#654321" stroke="#333" stroke-width="1"/>
+  <circle cx="99" cy="115" r="2" fill="#FFD700"/>
+  
+  <!-- Windows -->
+  <rect x="55" y="75" width="15" height="15" fill="#87ceeb" stroke="#333" stroke-width="1"/>
+  <line x1="62.5" y1="75" x2="62.5" y2="90" stroke="#333" stroke-width="0.5"/>
+  <line x1="55" y1="82.5" x2="70" y2="82.5" stroke="#333" stroke-width="0.5"/>
+  
+  <rect x="110" y="75" width="15" height="15" fill="#87ceeb" stroke="#333" stroke-width="1"/>
+  <line x1="117.5" y1="75" x2="117.5" y2="90" stroke="#333" stroke-width="0.5"/>
+  <line x1="110" y1="82.5" x2="125" y2="82.5" stroke="#333" stroke-width="0.5"/>
+  
+  <!-- Lightbulb being installed -->
+  <circle cx="75" cy="50" r="8" fill="#FFD700" stroke="#333" stroke-width="1.5"/>
+  <rect x="72" y="58" width="6" height="6" fill="#333"/>
+  <path d="M 72 64 L 70 68 M 78 64 L 80 68 M 75 64 L 75 68" stroke="#333" stroke-width="1" stroke-linecap="round"/>
+  
+  <!-- Electrical rays/glow around bulb -->
+  <line x1="75" y1="35" x2="75" y2="25" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+  <line x1="88" y1="50" x2="96" y2="50" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+  <line x1="62" y1="50" x2="54" y2="50" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+  <line x1="83" y1="40" x2="89" y2="34" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+  <line x1="67" y1="40" x2="61" y2="34" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Electrical outlet on wall -->
+  <rect x="130" y="95" width="15" height="15" fill="#fff" stroke="#333" stroke-width="1"/>
+  <circle cx="134" cy="101" r="1.5" fill="#333"/>
+  <circle cx="141" cy="101" r="1.5" fill="#333"/>
+  <rect x="134" y="106" width="7" height="2" fill="#333"/>
+  
+  <!-- Wrench tool -->
+  <g transform="translate(145, 140)">
+    <!-- Handle -->
+    <rect x="0" y="0" width="4" height="25" fill="#95A5A6" rx="2"/>
+    <!-- Wrench head -->
+    <ellipse cx="2" cy="-3" rx="6" ry="4" fill="#7F8C8D"/>
+  </g>
+</svg>

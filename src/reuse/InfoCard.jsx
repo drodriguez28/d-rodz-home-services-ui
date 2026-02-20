@@ -8,6 +8,9 @@ export const InfoCard = ({
   subtitle, 
   listItems = [], 
   footer,
+  buttonText = "Learn More",
+  onButtonClick,
+  showButton = true,
   horizontal = true,
   className = "max-w-sm"
 }) => {
@@ -43,6 +46,16 @@ export const InfoCard = ({
         <p className="font-normal text-gray-700 mt-4">
           {footer}
         </p>
+      )}
+      
+      {/* Button - Only show if showButton is true */}
+      {showButton && (
+        <button
+          onClick={onButtonClick}
+          className="mt-4 w-full bg-red-800 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-700 transition"
+        >
+          {buttonText}
+        </button>
       )}
     </Card>
   );
