@@ -2,7 +2,6 @@ import React from 'react';
 import '../logo.css';
 import pugImage from '../../public/images/pug-logo.png';
 
-
 const Logo = ({ size = 'large' }) => {
   const sizeClass = size === 'small' ? 'logo-card-small' : '';
   
