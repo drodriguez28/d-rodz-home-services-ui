@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ProfileCard } from "../reuse/ProfileCard";
 
 export function ContactUs() {
@@ -9,6 +9,10 @@ export function ContactUs() {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="mx-auto mt-10 px-4 max-w-2xl">
