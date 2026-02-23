@@ -8,11 +8,11 @@ export const ProfileCard = ({
   showButtons = true 
 }) => {
   return (
-    <div className="bg-eggshell max-w-xs w-full p-6 border border-gray-300 rounded-lg shadow-sm">
+    <div className="bg-white max-w-xs w-full p-6 border border-gray-300 rounded-lg shadow-sm">
       <div className="flex flex-col items-center">
         {/* Profile Image */}
         <img 
-          className="w-24 h-24 mb-6 rounded-full object-cover" 
+          className="w-40 h-42 mb-6 rounded-full object-cover" 
           src={image} 
           alt={name}
         />

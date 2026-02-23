@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import { Painting } from "./components/Painting";
+import { ContactUs } from "./components/ContactUs";
 import FooterFlowbite from "./reuse/FooterFlowbite";
 import "./App.css";
 
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/painting" element={<Painting />} />
+            <Route path="/contact-us" element={<ContactUs />} />
           </Routes>
         </main>
         <FooterFlowbite />
