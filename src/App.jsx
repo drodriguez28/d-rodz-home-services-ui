@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import { Painting } from "./components/Painting";
 import { ContactUs } from "./components/ContactUs";
+import { Electrical } from "./components/Electrical";
 import FooterFlowbite from "./reuse/FooterFlowbite";
 import "./App.css";
 
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/painting" element={<Painting />} />
+            <Route path="/electrical" element={<Electrical />} />
             <Route path="/contact-us" element={<ContactUs />} />
           </Routes>
         </main>

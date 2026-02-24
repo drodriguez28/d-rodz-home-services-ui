@@ -26,7 +26,7 @@ function Home() {
         <InfoCard
           imgSrc="/images/electrical-home.png"
           title="Electrical"
-          description="Professional electrical services for residential repairs, installations, and upgrades."
+          description="Electrical services for residential repairs, installations, and upgrades."
           horizontal={false}
           onButtonClick={() => navigate('/electrical')}
         />

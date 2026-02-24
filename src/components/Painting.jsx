@@ -21,7 +21,7 @@ export const Painting = () => {
         description="We specialize in residential painting with over 25 years of experience. Our expert painters deliver quality finishes for interior and exterior projects with attention to detail and precision."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 justify-items-center mb-12 max-w-6xl mx-auto mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 justify-items-center mb-12 max-w-6xl mx-auto">
         <InfoCard
           imgSrc="/images/interior-painting.png"
           title="Interior Painting"
