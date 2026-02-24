@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { HeroSection } from "../reuse/HeroSection";
 import { InfoCard } from "../reuse/InfoCard";
-import Gallery from "../reuse/Gallery";
+import { Gallery } from "../reuse/Gallery";
 
 export const Painting = () => {
   useEffect(() => {
@@ -12,6 +12,11 @@ export const Painting = () => {
     "/images/painting-home.png",
     "/images/interior-painting.png",
     "/images/exterior-painting.png",
+    "/images/exterior-painting.png",
+    "/images/exterior-painting.png",
+    "/images/exterior-painting.png",
+    "/images/exterior-painting.png",
+
   ];
 
   return (

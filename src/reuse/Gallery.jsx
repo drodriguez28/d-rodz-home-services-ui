@@ -1,111 +1,92 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-export default function Gallery({ images = [], autoplay = true, interval = 7000 }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export const Gallery = ({ images = [] }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imageDimensions, setImageDimensions] = useState({});
+
+  const getImageOrientation = (src) => {
+    if (imageDimensions[src]) {
+      const { width, height } = imageDimensions[src];
+      return height > width ? "portrait" : "landscape";
+    }
+    return "landscape";
+  };
+
+  const handleImageLoad = (src, event) => {
+    const img = event.target;
+    setImageDimensions((prev) => ({
+      ...prev,
+      [src]: { width: img.naturalWidth, height: img.naturalHeight },
+    }));
+  };
+
+  const getGridColSpan = (orientation) => {
+    return orientation === "portrait" ? "col-span-1" : "col-span-1 md:col-span-2";
+  };
+
+  const getImageHeight = (orientation) => {
+    return orientation === "portrait" ? "h-80" : "h-64 md:h-72";
+  };
 
   useEffect(() => {
-    if (images.length === 0 || !autoplay) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && selectedImage) {
+        setSelectedImage(null);
+      }
+    };
 
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, [images.length, autoplay, interval]);
-
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  if (images.length === 0) {
-    return <div className="text-center text-gray-500">No images available</div>;
-  }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedImage]);
 
   return (
-    <div id="gallery" className="relative w-full">
-      {/* Carousel wrapper */}
-      <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`${
-              index === currentIndex ? 'block' : 'hidden'
-            } duration-700 ease-in-out`}
-          >
-            <img
-              src={image}
-              className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              alt={`Gallery image ${index + 1}`}
-            />
-          </div>
-        ))}
+    <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
+      {/* Main Gallery Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-max">
+        {images.map((image, index) => {
+          const orientation = getImageOrientation(image);
+          return (
+            <div
+              key={index}
+              className={`relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow cursor-pointer group ${getGridColSpan(
+                orientation
+              )} ${getImageHeight(orientation)}`}
+              onClick={() => setSelectedImage(image)}
+            >
+              <img
+                src={image}
+                alt={`Gallery ${index + 1}`}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                onLoad={(e) => handleImageLoad(image, e)}
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all" />
+            </div>
+          );
+        })}
       </div>
 
-      {/* Previous button */}
-      <button
-        type="button"
-        onClick={goToPrevious}
-        className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-      >
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none transition">
-          <svg
-            className="w-5 h-5 text-white rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m15 19-7-7 7-7"
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="max-w-4xl max-h-screen flex items-center justify-center">
+            <img
+              src={selectedImage}
+              alt="Full view"
+              className="max-w-full max-h-screen object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
             />
-          </svg>
-          <span className="sr-only">Previous</span>
-        </span>
-      </button>
-
-      {/* Next button */}
-      <button
-        type="button"
-        onClick={goToNext}
-        className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-      >
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none transition">
-          <svg
-            className="w-5 h-5 text-white rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            viewBox="0 0 24 24"
+          </div>
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300"
           >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m9 5 7 7-7 7"
-            />
-          </svg>
-          <span className="sr-only">Next</span>
-        </span>
-      </button>
+            ✕
+          </button>
+        </div>
+      )}
     </div>
   );
-}
+};

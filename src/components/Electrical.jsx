@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { HeroSection } from "../reuse/HeroSection";
 import { InfoCard } from "../reuse/InfoCard";
-import Gallery from "../reuse/Gallery";
+import { Gallery } from "../reuse/Gallery";
 
 export const Electrical = () => {
   useEffect(() => {
@@ -9,9 +9,12 @@ export const Electrical = () => {
   }, []);
 
   const electricalImages = [
-    "/images/electrical-home.png",
-    "/images/wiring.png",
-    "/images/lighting.png",
+    "/images/electric-1.jpeg",
+    "/images/electric-2.jpeg",
+    "/images/electric-3.jpeg",
+    "/images/electric-5.jpeg",
+    "/images/electric-6.jpeg",
+    "/images/electric-4.png",
   ];
 
   return (
