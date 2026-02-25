@@ -11,12 +11,6 @@ export const Painting = () => {
   const paintingImages = [
     "/images/painting-home.png",
     "/images/interior-painting.png",
-    "/images/exterior-painting.png",
-    "/images/exterior-painting.png",
-    "/images/exterior-painting.png",
-    "/images/exterior-painting.png",
-    "/images/exterior-painting.png",
-
   ];
 
   return (
