@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { InfoCard } from "../reuse/InfoCard";
 import { HeroSection } from "../reuse/HeroSection";
 import { ContactCard } from "../reuse/ContactCard";
+import ServiceAreaMap from "../reuse/ServiceAreaMap";
+
 
 function Home() {
   const navigate = useNavigate();
@@ -34,9 +36,8 @@ function Home() {
 
       <ContactCard />
 
-      <div className="flex justify-center mb-12 bg-stone-400">
-        <img src="/images/metro-atl.png" alt="Metro Atlanta Service Area" className="max-w-2xl w-full rounded shadow-lg" />
-      </div>
+      <ServiceAreaMap />
+
     </div>
   );
 }

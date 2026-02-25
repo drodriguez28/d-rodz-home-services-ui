@@ -9,12 +9,13 @@ export const Electrical = () => {
   }, []);
 
   const electricalImages = [
-    "/images/electric-1.jpeg",
     "/images/electric-2.jpeg",
+    "/images/electric-7.jpeg",
     "/images/electric-3.jpeg",
     "/images/electric-5.jpeg",
     "/images/electric-6.jpeg",
     "/images/electric-4.png",
+    "/images/electric-1.jpeg",
   ];
 
   return (

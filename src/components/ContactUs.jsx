@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ProfileCard } from "../reuse/ProfileCard";
 import { ContactCard } from "../reuse/ContactCard";
+import ServiceAreaMap from '../reuse/ServiceAreaMap';
 
 export function ContactUs() {
   useEffect(() => {
@@ -15,6 +16,7 @@ export function ContactUs() {
       </div>
 
       <ContactCard />
+      <ServiceAreaMap />
 
       {/* Profile Card Example */}
       <div className="flex justify-center mt-12">

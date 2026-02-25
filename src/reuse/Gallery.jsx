@@ -28,16 +28,34 @@ export const Gallery = ({ images = [] }) => {
     return orientation === "portrait" ? "h-80" : "h-64 md:h-72";
   };
 
+  const handlePrevImage = () => {
+    const currentIndex = images.indexOf(selectedImage);
+    const prevIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    setSelectedImage(images[prevIndex]);
+  };
+
+  const handleNextImage = () => {
+    const currentIndex = images.indexOf(selectedImage);
+    const nextIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+    setSelectedImage(images[nextIndex]);
+  };
+
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === "Escape" && selectedImage) {
+      if (!selectedImage) return;
+      
+      if (e.key === "Escape") {
         setSelectedImage(null);
+      } else if (e.key === "ArrowLeft") {
+        handlePrevImage();
+      } else if (e.key === "ArrowRight") {
+        handleNextImage();
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedImage]);
+  }, [selectedImage, images]);
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
@@ -71,6 +89,18 @@ export const Gallery = ({ images = [] }) => {
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
           onClick={() => setSelectedImage(null)}
         >
+          {/* Left Arrow */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePrevImage();
+            }}
+            className="absolute left-4 text-white text-4xl hover:text-gray-300 transition-colors z-51"
+            aria-label="Previous image"
+          >
+            ←
+          </button>
+
           <div className="max-w-4xl max-h-screen flex items-center justify-center">
             <img
               src={selectedImage}
@@ -79,6 +109,20 @@ export const Gallery = ({ images = [] }) => {
               onClick={(e) => e.stopPropagation()}
             />
           </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNextImage();
+            }}
+            className="absolute right-4 text-white text-4xl hover:text-gray-300 transition-colors z-51"
+            aria-label="Next image"
+          >
+            →
+          </button>
+
+          {/* Close Button */}
           <button
             onClick={() => setSelectedImage(null)}
             className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300"
