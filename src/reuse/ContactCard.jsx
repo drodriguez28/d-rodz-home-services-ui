@@ -1,16 +1,31 @@
 import { useState } from "react";
+import { trackEvent } from "../config/analytics";
 
 export function ContactCard({ 
   title = "Call, text, or email us to get your FREE ESTIMATE today!",
   phone = "404-573-3704",
-  email = "drodzhomeservices@gmail.com"
+  email = "drodzhomeservices@gmail.com",
+  pageName = "Unknown"
 }) {
   const [copied, setCopied] = useState(false);
 
+  const handleCallClick = () => {
+    trackEvent("Contact Action", "call_click", `Call - ${pageName}`);
+  };
+
+  const handleTextClick = () => {
+    trackEvent("Contact Action", "text_click", `Text - ${pageName}`);
+  };
+
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
+    trackEvent("Contact Action", "email_copy", `Email Copy - ${pageName}`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleEmailClick = () => {
+    trackEvent("Contact Action", "email_click", `Email Click - ${pageName}`);
   };
 
   return (
@@ -20,12 +35,14 @@ export function ContactCard({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <a
           href={`tel:${phone}`}
+          onClick={handleCallClick}
           className="inline-block bg-red-800 hover:bg-red-900 text-white text-xl px-8 py-3 rounded transition"
         >
           Call Us: {phone}
         </a>
         <a
           href={`sms:${phone}`}
+          onClick={handleTextClick}
           className="inline-block bg-red-800 hover:bg-red-900 text-white text-xl px-8 py-3 rounded transition"
         >
           Text Us: {phone}
@@ -33,7 +50,11 @@ export function ContactCard({
       </div>
 
       <div>
-        <a href={`mailto:${email}`} className="block text-lg text-red-800 hover:text-red-900 transition break-all">
+        <a 
+          href={`mailto:${email}`} 
+          onClick={handleEmailClick}
+          className="block text-lg text-red-800 hover:text-red-900 transition break-all"
+        >
           {email}
         </a>
         <button

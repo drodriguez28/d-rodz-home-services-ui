@@ -36,7 +36,7 @@ function Home() {
         />
       </div>
 
-      <ContactCard />
+      <ContactCard pageName="Home Page"/>
 
       <ServiceAreaMap />
 
