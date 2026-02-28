@@ -1,4 +1,5 @@
-import React from "react";
+import { useEffect } from "react";
+import { initializeGA } from "./config/analytics";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Header from "./components/Header";
@@ -9,6 +10,13 @@ import FooterFlowbite from "./reuse/FooterFlowbite";
 import "./App.css";
 
 function App() {
+
+  useEffect(() => {
+    console.log("Initializing Google Analytics...");
+    initializeGA();
+    console.log("GA initialized!");
+  }, []);
+
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
