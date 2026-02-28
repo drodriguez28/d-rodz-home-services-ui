@@ -3,7 +3,7 @@ import { useState } from "react";
 export function ContactCard({ 
   title = "Call, text, or email us to get your FREE ESTIMATE today!",
   phone = "404-573-3704",
-  email = "info@drozhomeservices.com"
+  email = "drodzhomeservices@gmail.com"
 }) {
   const [copied, setCopied] = useState(false);
 

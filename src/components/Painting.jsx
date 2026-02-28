@@ -9,8 +9,13 @@ export const Painting = () => {
   }, []);
 
   const paintingImages = [
-    "/images/painting-home.png",
-    "/images/interior-painting.png",
+    "/images/paint-1.jpeg",
+    "/images/paint-2.jpeg",
+    "/images/paint-3.jpeg",
+    "/images/paint-4.jpeg",
+    "/images/videos/paint-vid-1.mp4",
+    // "/images/videos/paint-vid-2.mp4",
+    "/images/videos/paint-vid-3.mp4",
   ];
 
   return (

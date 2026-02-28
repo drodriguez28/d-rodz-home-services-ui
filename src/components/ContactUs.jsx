@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ProfileCard } from "../reuse/ProfileCard";
 import { ContactCard } from "../reuse/ContactCard";
+import { LanguageSupport } from "../reuse/LanguageSupport";
 import ServiceAreaMap from '../reuse/ServiceAreaMap';
 
 export function ContactUs() {
@@ -13,6 +14,7 @@ export function ContactUs() {
       <div className="mb-12 text-center">
         <h1 className="text-4xl font-bold text-gray-800 mb-2">Contact Us</h1>
         <p className="text-gray-600 text-lg">Get in touch with us today for your home service needs</p>
+        <LanguageSupport className="mt-4" />
       </div>
 
       {/* Responsive Grid - 2 columns on desktop, 1 on mobile */}
