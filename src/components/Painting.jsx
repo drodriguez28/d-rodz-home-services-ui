@@ -13,8 +13,7 @@ export const Painting = () => {
     "/images/paint-2.jpeg",
     "/images/paint-3.jpeg",
     "/images/paint-4.jpeg",
-    "/images/videos/paint-vid-1.mp4",
-    // "/images/videos/paint-vid-2.mp4",
+    "/images/videos/paint-vid-2.mp4",
     "/images/videos/paint-vid-3.mp4",
   ];
 
