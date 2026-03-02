@@ -5,13 +5,13 @@ export const initializeGA = () => {
 };
 
 export const trackPageView = (path) => {
-  ReactGA.send({ hitType: "pageview", page: path });
+  ReactGA.send({
+    hitType: "pageview",
+    page: path,
+  });
 };
 
-export const trackEvent = (category, action, label) => {
-  ReactGA.event({
-    category: category,
-    action: action,
-    label: label,
-  });
+// ✅ GA4-native event tracking
+export const trackEvent = (eventName, params = {}) => {
+  ReactGA.event(eventName, params);
 };
