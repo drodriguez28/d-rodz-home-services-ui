@@ -7,10 +7,10 @@ import { Painting } from "./components/Painting";
 import { ContactUs } from "./components/ContactUs";
 import { Electrical } from "./components/Electrical";
 import FooterFlowbite from "./reuse/FooterFlowbite";
+import AnalyticsTracker from "./AnalyticsTracker";
 import "./App.css";
 
 function App() {
-
   useEffect(() => {
     console.log("Initializing Google Analytics...");
     initializeGA();
@@ -19,6 +19,7 @@ function App() {
 
   return (
     <Router>
+      <AnalyticsTracker />
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow">
