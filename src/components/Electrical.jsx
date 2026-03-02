@@ -15,7 +15,7 @@ export const Electrical = () => {
     "/images/electric-5.jpeg",
     "/images/electric-6.jpeg",
     "/images/electric-4.png",
-    "/images/electric-1.jpeg"
+    "/images/electric-8.jpeg"
   ];
 
   return (
