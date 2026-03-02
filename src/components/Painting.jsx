@@ -21,7 +21,7 @@ export const Painting = () => {
     <div className="mx-auto mt-10 px-4">
       <HeroSection
         title="Painting Services"
-        description="We specialize in residential painting with over 25 years of experience. Our expert painters deliver quality finishes for interior and exterior projects with attention to detail and precision."
+        description="We specialize in residential painting with over 25 years of experience. Our expert painters deliver high-quality finishes for interior and exterior projects, including cabinet painting, trim work, and other detailed painting services. We focus on precision, durability, and attention to detail to ensure your home looks its best."
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 justify-items-center mb-12 max-w-6xl mx-auto">
@@ -43,7 +43,9 @@ export const Painting = () => {
       </div>
 
       <div className="max-w-4xl mx-auto mb-12">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">Take a Look at Our Work</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
+          Take a Look at Our Work
+        </h2>
         <Gallery images={paintingImages} />
       </div>
     </div>
