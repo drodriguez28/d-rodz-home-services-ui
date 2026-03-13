@@ -14,7 +14,7 @@ function Home() {
       <div className="mb-5 text-center max-w-3xl mx-auto">
         <HeroSection
           title="Professional Home Services"
-          description="We focus on delivering quality home services tailored to your needs in Metro Atlanta. From professional painting to expert electrical work, we handle all your essential home improvements."
+          description="We focus on delivering quality painting services tailored to your needs in Metro Atlanta. From interior walls and ceilings to trim, doors, and detailed finishes, we handle all aspects of residential painting with care and attention to detail. While our main focus is painting, we can also assist with small electrical needs when necessary."
         />
         <LanguageSupport />
       </div>
