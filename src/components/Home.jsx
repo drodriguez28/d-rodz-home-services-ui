@@ -5,7 +5,6 @@ import { ContactCard } from "../reuse/ContactCard";
 import { LanguageSupport } from "../reuse/LanguageSupport";
 import ServiceAreaMap from "../reuse/ServiceAreaMap";
 
-
 function Home() {
   const navigate = useNavigate();
 
@@ -14,6 +13,7 @@ function Home() {
       <div className="mb-5 text-center max-w-3xl mx-auto">
         <HeroSection
           title="Professional Home Services"
+          trustText="⭐ 5-Star Rated on Google • Trusted in Metro Atlanta"
           description="We focus on delivering quality painting services tailored to your needs in Metro Atlanta. From interior walls and ceilings to trim, doors, and detailed finishes, we handle all aspects of residential painting with care and attention to detail. While our main focus is painting, we can also assist with small electrical needs when necessary."
         />
         <LanguageSupport />
@@ -25,21 +25,20 @@ function Home() {
           title="Painting"
           description="Professional interior and exterior painting services to transform your home."
           horizontal={false}
-          onButtonClick={() => navigate('/painting')}
+          onButtonClick={() => navigate("/painting")}
         />
         <InfoCard
           imgSrc="/images/electrical-home.png"
           title="Electrical"
           description="Electrical services for residential repairs, installations, and upgrades."
           horizontal={false}
-          onButtonClick={() => navigate('/electrical')}
+          onButtonClick={() => navigate("/electrical")}
         />
       </div>
 
-      <ContactCard pageName="Home Page"/>
+      <ContactCard pageName="Home Page" />
 
       <ServiceAreaMap />
-
     </div>
   );
 }
