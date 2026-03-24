@@ -5,7 +5,6 @@ import { ContactCard } from "../reuse/ContactCard";
 import { LanguageSupport } from "../reuse/LanguageSupport";
 import ServiceAreaMap from "../reuse/ServiceAreaMap";
 
-
 function Home() {
   const navigate = useNavigate();
 
@@ -26,21 +25,20 @@ function Home() {
           title="Painting"
           description="Professional interior and exterior painting services to transform your home."
           horizontal={false}
-          onButtonClick={() => navigate('/painting')}
+          onButtonClick={() => navigate("/painting")}
         />
         <InfoCard
           imgSrc="/images/electrical-home.png"
           title="Electrical"
           description="Electrical services for residential repairs, installations, and upgrades."
           horizontal={false}
-          onButtonClick={() => navigate('/electrical')}
+          onButtonClick={() => navigate("/electrical")}
         />
       </div>
 
       <ContactCard pageName="Home Page" />
 
       <ServiceAreaMap />
-
     </div>
   );
 }
