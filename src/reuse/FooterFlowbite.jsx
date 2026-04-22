@@ -11,7 +11,7 @@ const FooterFlowbite = () => {
     <Footer container className="mt-5 !bg-red-800">
       <FooterCopyright
         by="Deivid R. Business Web™"
-        year={2025}
+        year={2026}
         className="!text-white"
       />
       {/* <FooterLinkGroup>
